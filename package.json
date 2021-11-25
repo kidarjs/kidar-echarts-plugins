@@ -1,0 +1,25 @@
+{
+  "name": "kidar-echarts-plugins",
+  "version": "0.0.2-beta",
+  "description": "some plugins for kidar-echarts",
+  "private": false,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "kidar/kidar-echarts-plugins",
+  "keywords": [
+    "es",
+    "kidar-echarts",
+    "kidar-echarts-plugins"
+  ],
+  "contributors": [
+    "nkxrb <w626023781@163.com>"
+  ],
+  "author": "nkxrb",
+  "license": "MIT",
+  "devDependencies": {
+    "echarts": "^5.2.2"
+  }
+}
