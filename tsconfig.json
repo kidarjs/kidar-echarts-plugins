@@ -15,10 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "node",
-      "vite/client"
-    ],
     "paths": {
       "@/*": [
         "src/*"

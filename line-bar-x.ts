@@ -1,5 +1,6 @@
-import { BarSeriesOption, LineSeriesOption, PictorialBarSeriesOption, ScatterSeriesOption, YAXisComponentOption } from 'echarts'
-import { omitNum, setZoom, approximateNum, baseSerie, defineConfig, BaseData, Column, KidarEchartsContext } from './helper'
+import { BarSeriesOption, LineSeriesOption, PictorialBarSeriesOption, ScatterSeriesOption } from 'echarts'
+import { defineConfig, BaseData, Column, KidarEchartsContext } from './helper'
+import { omitNum, setZoom, approximateNum, baseSerie } from './utils'
 
 
 function setLineSeries(item: LineSeriesOption) {
@@ -51,12 +52,17 @@ const baseYAxis = {
   }
 }
 
+interface LineBarXExtra {
+  splitNumber?: number //仅适用于双Y轴，确定分割数量
+  omit?: number
+  rotate?: number
+}
+
 const option = defineConfig({
-  name: 'line-bar-x',
-  resetOption(cols, data, ctx) {
+  resetOption(cols, data, ctx: KidarEchartsContext & { extra?: LineBarXExtra }) {
     const series: (LineSeriesOption | BarSeriesOption | ScatterSeriesOption)[] = []
     const yAxis: any[] = []
-    const { rotate, omit, splitNumber } = ctx
+    const { rotate, omit, splitNumber } = ctx.extra || {}
     let barWidthCount = 1
     let barWidth = 30
     const stackSet = new Set()

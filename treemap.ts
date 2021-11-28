@@ -1,8 +1,8 @@
-import { setTitle, defineConfig } from './helper'
+import { defineConfig } from './helper'
+import { setTitle } from './utils'
 import { SERIES_TYPE } from './constant'
 
 export default defineConfig({
-  name: 'treemap',
   resetOption(cols, data, ctx) {
     const title = setTitle(ctx)
     return {

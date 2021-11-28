@@ -1,8 +1,14 @@
-import { defineConfig, setTitle } from './helper'
+import { defineConfig, KidarEchartsContext } from './helper'
+import { setTitle } from './utils'
+
+interface PieExtra {
+  radius?: string | number | (string | number)[]
+}
 
 export default defineConfig({
-  name: 'ring',
-  resetOption(cols, data, ctx) {
+  resetOption(cols, data, ctx: KidarEchartsContext & { extra?: PieExtra }) {
+    const { extra } = ctx
+    const { radius } = extra || {}
     const title = setTitle(ctx)
     return {
       title,
@@ -19,7 +25,7 @@ export default defineConfig({
           animationDurationUpdate: 1000,
           universalTransition: true,
           type: 'pie',
-          radius: ['35%', '50%'],
+          radius: radius ? radius : ['35%', '50%'],
           data: data
         }
       ]
